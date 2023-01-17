@@ -6,23 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Câmbio</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <input type="number" name="valor" id="valor">
-    <select name="moeda" id="moeda">
+    <input type="number" name="valor1" id="valor">
+    <select name="moeda1" id="moeda1">
         <option value=""></option>
-        <option value="brl">BRL</option>
-        <option value="eur">EUR</option>
-        <option value="usd">USD</option>
+        <option value="USD">Dólar Americano</option>
+        <option value="CAD">Dólar Canadense</option>
+        <option value="EUR">Euro</option>
+        <option value="CHF">Franco Suíço</option>
+        <option value="GBP">Libra Esterlina</option>
+        <option value="TRY">Lira Turca</option>
+        <option value="ARS">Peso Argentino</option>
+        <option value="BRL">Real</option>
+        <option value="JPY">Yen</option>
+        <option value="CNY">Yuan</option>
     </select>
-    <input type="submit" value="Cotação" id="button">
-
-    <br>
-    <div id="resultado">
+    <h1> => </h1>
+    <select name="moeda2" id="moeda2">
+        <option value=""></option>
+        <option value="USD">Dólar Americano</option>
+        <option value="CAD">Dólar Canadense</option>
+        <option value="EUR">Euro</option>
+        <option value="CHF">Franco Suíço</option>
+        <option value="GBP">Libra Esterlina</option>
+        <option value="TRY">Lira Turca</option>
+        <option value="ARS">Peso Argentino</option>
+        <option value="BRL">Real</option>
+        <option value="JPY">Yen</option>
+        <option value="CNY">Yuan</option>
+    </select>
+    <div class="conversao" id="conversao">
+        <p></p>
     </div>
 
-    <script src="script.js"></script>
+    <input type="submit" value="Converter" id="converter">
+
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 200px 200px;
+    display: flex;
+}
+
+.conversao {
+    min-width: 128px;
+    height: 79.875px;
+    border: 1px solid #767676;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+
+}
