@@ -1,89 +1,68 @@
-function mostrarCotacao(result, caso) {
-    console.log(result);
-    for (const chave in result) {
+function mostrarCotacao(resultado, inverso) {
+    console.log(resultado);
+    for (const chave in resultado) {
         if (chave === 'result') {
-            if (caso === 2) {
-                // console.log('Caso 1');
-                document.querySelector('#valor2').value = `${result[chave]}`;
+            if (inverso) {
+                document.querySelector('#valor1').value = `${resultado[chave]}`;
+                return;
             }
-            else if (caso === 1) {
-                // console.log('Caso 2');
-
-                document.querySelector('#valor1').value = `${result[chave]}`;
-
-            }
+            document.querySelector('#valor2').value = `${resultado[chave]}`;
         }
-
-        //     if (chave === 'result') {
-        //         console.log(result[chave]);
-        //         console.log(result);
-        //     }
     }
 }
-
-// let from = document.getElementById('moeda1').value;
-// let to = document.getElementById('moeda2').value;
-// let amount = document.getElementById('valor1').value;
 
 let moeda1 = document.querySelector('#moeda1');
 moeda1.addEventListener('change', () => {
     cotacao(
         document.getElementById('valor1').value,
-        document.getElementById('moeda2').value,
         document.getElementById('moeda1').value,
-        1)
+        document.getElementById('moeda2').value,
+        false)
 })
 
 let valor1 = document.getElementById('valor1')
 valor1.addEventListener('change', () => {
     cotacao(
         document.getElementById('valor1').value,
-        document.getElementById('moeda2').value,
         document.getElementById('moeda1').value,
-        2)
+        document.getElementById('moeda2').value,
+        false)
 })
 
 let moeda2 = document.querySelector('#moeda2');
 moeda2.addEventListener('change', () => {
     cotacao(
         document.getElementById('valor1').value,
-        document.getElementById('moeda2').value,
         document.getElementById('moeda1').value,
-        2)
+        document.getElementById('moeda2').value,
+        false)
 })
 
 let valor2 = document.getElementById('valor2')
 valor2.addEventListener('change', () => {
     cotacao(
         document.getElementById('valor2').value,
-        document.getElementById('moeda1').value,
         document.getElementById('moeda2').value,
-        1)
+        document.getElementById('moeda1').value,
+        true)
 })
 
-function cotacao(valor, fonte, alvo, caso) {
+function cotacao(valor, fonte, alvo, inverso) {
     var myHeaders = new Headers();
     // myHeaders.append("apikey", "gwK9XyKuscS53i8FaHgXkrJMaeN8CGWR");
-    // const access_key = 'NR44ed5npzuK0M2E7Jowhbs8gQOk2yjD';
 
-    if (fonte === 'Moeda...') {
+    if (fonte === 'Moeda...' || alvo === 'Moeda...') {
         return;
     }
-    if (alvo === 'Moeda...') {
-        return;
-    }
-    if (fonte && document.querySelector('#valor2').value === '') {
-        caso = 1;
-    }
 
-    fetch(`https://api.apilayer.com/fixer/convert?to=${fonte}&from=${alvo}&amount=${valor}`, {
+    fetch(`https://api.apilayer.com/fixer/convert?from=${fonte}&to=${alvo}&amount=${valor}`, {
         method: 'GET',
         redirect: 'follow',
         headers: myHeaders
     })
-        .then(response => {
-            response.json()
-                .then(result => mostrarCotacao(result, caso))
+        .then(resposta => {
+            resposta.json()
+                .then(resultado => mostrarCotacao(resultado, inverso))
         })
-        .catch(error => console.log('error', error));
+        .catch(erro => console.log('Erro: ', erro));
 }
