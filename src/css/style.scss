@@ -16,12 +16,12 @@ body {
         height: 50vh;
         padding: 30px;
 
-        background: rgba(255, 255, 255, 0.25);
+        background: rgba(0, 0, 0, 0.25);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         border-radius: 10px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0);
 
         h1 {
             color: #fff;
@@ -33,6 +33,11 @@ body {
             display: flex;
             justify-content: center;
             margin: 20px 0;
+
+            input:hover,
+            select:hover {
+                background-color: rgb(239, 239, 239);
+            }
 
             &__input1,
             &__input2 {
@@ -60,6 +65,13 @@ body {
                 height: 54px;
                 border-radius: 6px;
                 margin: 0 15px;
+                font-size: 20px;
+
+                &:hover {
+                    background-color: #a9d37e;
+                    color: #FFF;
+                    outline: 1px solid #FFF;
+                }
             }
         }
 
@@ -70,12 +82,28 @@ body {
             &__cotacao {
                 color: #FFF;
                 font-size: 25px;
+                font-weight: bold;
+                padding: 0 30px;
+                margin: 0 auto;
+                // width: 400px;
+
+                .taxas {
+                    display: flex;
+                }
+
+                span {
+                    font-size: 25px;
+                    font-weight: initial;
+                }
             }
 
             &__infos {
                 color: #FFF;
+                font-size: 15px;
                 position: absolute;
                 bottom: 0;
+                margin-bottom: 20px;
+                padding: 0 39px;
             }
         }
     }

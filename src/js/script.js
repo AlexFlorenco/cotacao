@@ -48,9 +48,10 @@ alternador.addEventListener('click', () => {
 
 function cotacao(valor, fonte, alvo, inverso) {
     var myHeaders = new Headers();
-    // myHeaders.append("apikey", "gwK9XyKuscS53i8FaHgXkrJMaeN8CGWR");
+    // myHeaders.append("apikey", "m3gXjq4KwOmh68NjZ2fbQIgY3aC3tr17");
 
-    if (fonte === ' ' || alvo === ' ') {
+    if (valor === '' || fonte === ' ' || alvo === ' ') {
+        console.log('Sem parametros');
         return;
     }
 
@@ -68,13 +69,35 @@ function cotacao(valor, fonte, alvo, inverso) {
 
 function mostrarCotacao(resultado, inverso) {
     console.log(resultado);
-    for (const chave in resultado) {
-        if (chave === 'result') {
-            if (inverso) {
-                valor1.value = `${resultado[chave]}`;
-                return;
-            }
-            valor2.value = `${resultado[chave]}`;
-        }
+    let conversao = resultado.result
+    let data = formatarData(resultado.date)
+    let cota = resultado.info.rate
+    let fonte = resultado.query.from
+    let alvo = resultado.query.to
+    let valor1_taxa = Number(valor1.value)
+    let valor2_taxa = Number(valor2.value)
+
+    if (inverso) {
+        valor1_taxa = Number(conversao)
+        valor1.value = conversao.toFixed(2)
+        document.getElementById('conversao').innerText = `${valor2_taxa.toFixed(4)} ${fonte} equivale a ${valor1_taxa.toFixed(4)} ${alvo}`
+        document.getElementById('taxa').innerHTML = `1 ${fonte} = ${cota.toFixed(4)} ${alvo} <br> 1 ${alvo} = ${(valor2_taxa / valor1_taxa).toFixed(4)} ${fonte}`
     }
+    else {
+        valor2_taxa = Number(conversao)
+        valor2.value = conversao.toFixed(2);
+        document.getElementById('conversao').innerText = `${valor1_taxa.toFixed(4)} ${fonte} equivale a ${valor2_taxa.toFixed(4)} ${alvo}`
+        document.getElementById('taxa').innerHTML = `1 ${fonte} = ${cota.toFixed(4)} ${alvo} <br> 1 ${alvo} = ${(valor1_taxa / valor2_taxa).toFixed(4)} ${fonte}`
+    }
+
+    document.getElementById('cotacao').innerText = data
+
+}
+
+function formatarData(data) {
+    let dataLista = []
+    dataLista.unshift(data.slice(0, 4))
+    dataLista.unshift(data.slice(5, 7))
+    dataLista.unshift(data.slice(8, 10))
+    return dataLista.join('/');
 }
