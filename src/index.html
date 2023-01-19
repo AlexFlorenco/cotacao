@@ -17,42 +17,63 @@
 </head>
 
 <body>
-    <div class="input-group mb-3">
-        <select name="moeda1" id="moeda1" class="form-select">
-            <option value="Moeda...">Moeda...</option>
-            <option value="USD">Dólar Americano</option>
-            <option value="CAD">Dólar Canadense</option>
-            <option value="EUR">Euro</option>
-            <option value="CHF">Franco Suíço</option>
-            <option value="GBP">Libra Esterlina</option>
-            <option value="TRY">Lira Turca</option>
-            <option value="ARS">Peso Argentino</option>
-            <option value="BRL">Real</option>
-            <option value="JPY">Yen</option>
-            <option value="CNY">Yuan</option>
-        </select>
-        <input type="number" name="valor1" id="valor1" class="form-control" placeholder="Valor">
+    <div class="container">
+        <h1>Conversor de Moedas</h1>
+        <div class="row">
+            <div class="col conversor">
+                <div class="input-group mb-3 conversor__input1">
+                    <select name="moeda1" id="moeda1" class="form-select">
+                        <option value="Moeda...">Moeda...</option>
+                        <option value="USD">Dólar Americano</option>
+                        <option value="CAD">Dólar Canadense</option>
+                        <option value="EUR">Euro</option>
+                        <option value="CHF">Franco Suíço</option>
+                        <option value="GBP">Libra Esterlina</option>
+                        <option value="TRY">Lira Turca</option>
+                        <option value="ARS">Peso Argentino</option>
+                        <option value="BRL">Real</option>
+                        <option value="JPY">Yen</option>
+                        <option value="CNY">Yuan</option>
+                    </select>
+                    <input type="number" name="valor1" id="valor1" class="form-control" placeholder="Valor">
+                    <span class="input-group-text cod"></span>
+                </div>
+
+                <button class="conversor__alternador"><i class='bi bi-arrow-left-right'></i></button>
+
+                <div class="input-group mb-3 conversor__input2">
+                    <select name="moeda2" id="moeda2" class="form-select">
+                        <option value="Moeda...">Moeda...</option>
+                        <option value="USD">Dólar Americano</option>
+                        <option value="CAD">Dólar Canadense</option>
+                        <option value="EUR">Euro</option>
+                        <option value="CHF">Franco Suíço</option>
+                        <option value="GBP">Libra Esterlina</option>
+                        <option value="TRY">Lira Turca</option>
+                        <option value="ARS">Peso Argentino</option>
+                        <option value="BRL">Real</option>
+                        <option value="JPY">Yen</option>
+                        <option value="CNY">Yuan</option>
+                    </select>
+                    <input type="number" name="valor2" id="valor2" class="form-control" placeholder="Valor">
+                    <span class="input-group-text cod"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col dados">
+                <div class="dados__cotacao">
+                    <p>Data da cotação: <span id="cotacao"></span></p>
+                    <p>Taxas: <span id="taxa"></span></p>
+                </div>
+                <div class="dados__infos">
+                    O cálculo efetuado tem caráter informativo e não substitui as disposições da norma cambial
+                    brasileira para casos específicos de conversão.
+                </div>
+            </div>
+        </div>
     </div>
-
-    <i class="bi bi-arrow-left-right"></i>
-
-    <div class="input-group mb-3">
-        <select name="moeda2" id="moeda2" class="form-select">
-            <option value="Moeda...">Moeda...</option>
-            <option value="USD">Dólar Americano</option>
-            <option value="CAD">Dólar Canadense</option>
-            <option value="EUR">Euro</option>
-            <option value="CHF">Franco Suíço</option>
-            <option value="GBP">Libra Esterlina</option>
-            <option value="TRY">Lira Turca</option>
-            <option value="ARS">Peso Argentino</option>
-            <option value="BRL">Real</option>
-            <option value="JPY">Yen</option>
-            <option value="CNY">Yuan</option>
-        </select>
-        <input type="number" name="valor2" id="valor2" class="form-control" placeholder="Valor">
-    </div>
-
     <script src="js/script.js"></script>
 </body>
 
