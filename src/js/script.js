@@ -1,44 +1,49 @@
-let cod1 = document.getElementById('cod1');
-let cod2 = document.getElementById('cod2');
+let moeda1 = document.getElementById('moeda1')
+let valor1 = document.getElementById('valor1')
+let cod1 = document.getElementById('cod1')
 
-let moeda1 = document.querySelector('#moeda1');
+let moeda2 = document.getElementById('moeda2')
+let valor2 = document.getElementById('valor2')
+let cod2 = document.getElementById('cod2')
+
+let alternador = document.getElementById('alternador')
+
 moeda1.addEventListener('change', () => {
-    cod1.innerHTML = document.getElementById('moeda1').value;
-
+    cod1.innerText = moeda1.value;
     cotacao(
-        document.getElementById('valor1').value,
-        document.getElementById('moeda1').value,
-        document.getElementById('moeda2').value,
-        false)
+        valor1.value, moeda1.value, moeda2.value, false)
 })
 
-let valor1 = document.getElementById('valor1')
 valor1.addEventListener('change', () => {
     cotacao(
-        document.getElementById('valor1').value,
-        document.getElementById('moeda1').value,
-        document.getElementById('moeda2').value,
-        false)
+        valor1.value, moeda1.value, moeda2.value, false)
 })
 
-let moeda2 = document.querySelector('#moeda2');
 moeda2.addEventListener('change', () => {
-    cod2.innerHTML = document.getElementById('moeda2').value;
-
+    cod2.innerText = moeda2.value;
     cotacao(
-        document.getElementById('valor1').value,
-        document.getElementById('moeda1').value,
-        document.getElementById('moeda2').value,
-        false)
+        valor1.value, moeda1.value, moeda2.value, false)
 })
 
-let valor2 = document.getElementById('valor2')
 valor2.addEventListener('change', () => {
     cotacao(
-        document.getElementById('valor2').value,
-        document.getElementById('moeda2').value,
-        document.getElementById('moeda1').value,
-        true)
+        valor2.value, moeda2.value, moeda1.value, true)
+})
+
+alternador.addEventListener('click', () => {
+    let moeda_aux = moeda1.value
+    let cod_aux = cod1.innerText
+
+    moeda1.value = moeda2.value
+    moeda2.value = moeda_aux
+
+    cod1.innerText = cod2.innerText
+    cod2.innerText = cod_aux
+
+    valor2.value = ''
+
+    cotacao(
+        valor1.value, moeda1.value, moeda2.value, false)
 })
 
 function cotacao(valor, fonte, alvo, inverso) {
@@ -66,10 +71,10 @@ function mostrarCotacao(resultado, inverso) {
     for (const chave in resultado) {
         if (chave === 'result') {
             if (inverso) {
-                document.querySelector('#valor1').value = `${resultado[chave]}`;
+                valor1.value = `${resultado[chave]}`;
                 return;
             }
-            document.querySelector('#valor2').value = `${resultado[chave]}`;
+            valor2.value = `${resultado[chave]}`;
         }
     }
 }
