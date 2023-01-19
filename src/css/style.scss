@@ -39,12 +39,17 @@ body {
                 max-width: 325px;
                 height: 54px;
 
+                input::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                }
+
                 select {
                     width: 85px;
                 }
 
                 .cod {
-                    padding: 0 5px;
+                    padding: 0;
+                    justify-content: center;
                     width: 45px;
                 }
             }

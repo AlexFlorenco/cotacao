@@ -1,5 +1,10 @@
+let cod1 = document.getElementById('cod1');
+let cod2 = document.getElementById('cod2');
+
 let moeda1 = document.querySelector('#moeda1');
 moeda1.addEventListener('change', () => {
+    cod1.innerHTML = document.getElementById('moeda1').value;
+
     cotacao(
         document.getElementById('valor1').value,
         document.getElementById('moeda1').value,
@@ -18,6 +23,8 @@ valor1.addEventListener('change', () => {
 
 let moeda2 = document.querySelector('#moeda2');
 moeda2.addEventListener('change', () => {
+    cod2.innerHTML = document.getElementById('moeda2').value;
+
     cotacao(
         document.getElementById('valor1').value,
         document.getElementById('moeda1').value,
@@ -38,7 +45,7 @@ function cotacao(valor, fonte, alvo, inverso) {
     var myHeaders = new Headers();
     // myHeaders.append("apikey", "gwK9XyKuscS53i8FaHgXkrJMaeN8CGWR");
 
-    if (fonte === 'Moeda...' || alvo === 'Moeda...') {
+    if (fonte === ' ' || alvo === ' ') {
         return;
     }
 
