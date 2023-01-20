@@ -1,0 +1,76 @@
+@media (max-width: 595px) {
+    body {
+        background-position: 15%;
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .conversor {
+                margin-bottom: 40px;
+
+                &__input1,
+                &__input2 {
+
+                    select {
+                        min-width: 100%;
+                        border-radius: 6px 6px 0 0 !important;
+                        border-width: 0 0 1px 0;
+                    }
+
+                    input {
+                        left: 1px;
+                        border-radius: 0 0 0 6px !important;
+                        border: none;
+                        font-size: 1rem;
+                    }
+
+                    .cod {
+                        border: none;
+                        border-radius: 0 0 6px 0 !important;
+
+                    }
+                }
+
+                &__alternador {
+                    align-self: center;
+                    height: 50px;
+                    padding: 10px 15px;
+                }
+            }
+
+            .dados {
+                &__cotacao {
+                    span {
+                        display: block;
+
+                    }
+
+                    p {
+                        margin-top: 20px;
+                        margin-bottom: 0;
+                    }
+
+                    .taxas {
+                        display: block;
+                    }
+                }
+
+                &__infos {
+                    position: initial;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        .container {}
+    }
+}

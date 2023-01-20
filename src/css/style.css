@@ -10,10 +10,11 @@ body {
   width: 100vw;
   height: 100vh;
   background-image: url(../assets/img/background.svg);
+  background-size: cover;
 }
 body .container {
   max-width: 850px;
-  height: 50vh;
+  height: 500px;
   padding: 30px;
   background: rgba(0, 0, 0, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -23,6 +24,7 @@ body .container {
   border: 1px solid rgba(255, 255, 255, 0);
 }
 body .container h1 {
+  font-size: clamp(2.2em, 2em + 1vw, 3em);
   color: #fff;
   text-align: center;
   font-weight: bold;
@@ -30,11 +32,7 @@ body .container h1 {
 body .container .conversor {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
-}
-body .container .conversor input:hover,
-body .container .conversor select:hover {
-  background-color: rgb(239, 239, 239);
+  margin: 30px 0 15px 0;
 }
 body .container .conversor__input1, body .container .conversor__input2 {
   max-width: 325px;
@@ -46,8 +44,15 @@ body .container .conversor__input1 input::-webkit-inner-spin-button, body .conta
 body .container .conversor__input1 select, body .container .conversor__input2 select {
   width: 85px;
 }
+body .container .conversor__input1 input, body .container .conversor__input2 input {
+  font-size: 1.1rem;
+}
+body .container .conversor__input1 input:hover,
+body .container .conversor__input1 select:hover, body .container .conversor__input2 input:hover,
+body .container .conversor__input2 select:hover {
+  background-color: #f8f9fa;
+}
 body .container .conversor__input1 .cod, body .container .conversor__input2 .cod {
-  padding: 0;
   justify-content: center;
   width: 45px;
 }
@@ -57,35 +62,31 @@ body .container .conversor__alternador {
   height: 54px;
   border-radius: 6px;
   margin: 0 15px;
-  font-size: 20px;
+  font-size: 1.35rem;
 }
 body .container .conversor__alternador:hover {
   background-color: #a9d37e;
   color: #FFF;
   outline: 1px solid #FFF;
 }
-body .container .dados {
-  flex-direction: column;
-}
 body .container .dados__cotacao {
   color: #FFF;
-  font-size: 25px;
+  font-size: clamp(1em, 1em + 1vw, 1.6em);
   font-weight: bold;
   padding: 0 30px;
-  margin: 0 auto;
 }
 body .container .dados__cotacao .taxas {
   display: flex;
 }
 body .container .dados__cotacao span {
-  font-size: 25px;
+  font-size: clamp(0.7em, 0.7em + 1vw, 1em);
   font-weight: initial;
 }
 body .container .dados__infos {
   color: #FFF;
-  font-size: 15px;
+  font-size: clamp(0.5em, 0.5em + 1vw, 1em);
   position: absolute;
   bottom: 0;
   margin-bottom: 20px;
-  padding: 0 39px;
+  padding: 0 40px;
 }/*# sourceMappingURL=style.css.map */
