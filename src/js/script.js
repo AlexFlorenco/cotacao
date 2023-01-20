@@ -80,14 +80,14 @@ function mostrarCotacao(resultado, inverso) {
     if (inverso) {
         valor1_taxa = Number(conversao)
         valor1.value = conversao.toFixed(2)
-        document.getElementById('conversao').innerText = `${valor2_taxa.toFixed(4)} ${fonte} equivale a ${valor1_taxa.toFixed(4)} ${alvo}`
-        document.getElementById('taxa').innerHTML = `1 ${fonte} = ${cota.toFixed(4)} ${alvo} <br> 1 ${alvo} = ${(valor2_taxa / valor1_taxa).toFixed(4)} ${fonte}`
+        document.getElementById('conversao').innerText = `${valor2_taxa.toFixed(4)} ${fonte} equivale a ${valor1_taxa.toFixed(4)} ${alvo}`.replaceAll('.', ',')
+        document.getElementById('taxa').innerHTML = `1 ${fonte} = ${cota.toFixed(4)} ${alvo} <br> 1 ${alvo} = ${(valor2_taxa / valor1_taxa).toFixed(4)} ${fonte}`.replaceAll('.', ',')
     }
     else {
         valor2_taxa = Number(conversao)
         valor2.value = conversao.toFixed(2);
-        document.getElementById('conversao').innerText = `${valor1_taxa.toFixed(4)} ${fonte} equivale a ${valor2_taxa.toFixed(4)} ${alvo}`
-        document.getElementById('taxa').innerHTML = `1 ${fonte} = ${cota.toFixed(4)} ${alvo} <br> 1 ${alvo} = ${(valor1_taxa / valor2_taxa).toFixed(4)} ${fonte}`
+        document.getElementById('conversao').innerText = `${valor1_taxa.toFixed(4)} ${fonte} equivale a ${valor2_taxa.toFixed(4)} ${alvo}`.replaceAll('.', ',')
+        document.getElementById('taxa').innerHTML = `1 ${fonte} = ${cota.toFixed(4)} ${alvo} <br> 1 ${alvo} = ${(valor1_taxa / valor2_taxa).toFixed(4)} ${fonte}`.replaceAll('.', ',')
     }
 
     document.getElementById('cotacao').innerText = data
