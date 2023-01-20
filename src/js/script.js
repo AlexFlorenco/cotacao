@@ -51,7 +51,6 @@ function cotacao(valor, fonte, alvo, inverso) {
     // myHeaders.append("apikey", "m3gXjq4KwOmh68NjZ2fbQIgY3aC3tr17");
 
     if (valor === '' || fonte === ' ' || alvo === ' ') {
-        console.log('Sem parametros');
         return;
     }
 
@@ -68,7 +67,6 @@ function cotacao(valor, fonte, alvo, inverso) {
 }
 
 function mostrarCotacao(resultado, inverso) {
-    console.log(resultado);
     let conversao = resultado.result
     let data = formatarData(resultado.date)
     let cota = resultado.info.rate
